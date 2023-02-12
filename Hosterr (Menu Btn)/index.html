@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hosterr</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="./app.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">
+        <img src="./Assets/Logo.svg" alt="Hosterr Logo">
+        <p>Hosterr is hiring!</p>
+      </div>
+      <nav>
+        <svg viewBox="0 0 100 80" width="40" height="40" class="menu" aria-expanded="false">
+          <rect width="100" height="12" class="menu--top"></rect>
+          <rect y="30" width="100" height="12" class="menu--middle"></rect>
+          <rect y="60" width="100" height="12" class="menu--bottom"></rect>
+        </svg>
+        <ul data-state="close">
+          <li><a href="#" class="btn links">Plans</a></li>
+          <li><a href="#" class="btn links">Find Domanin</a></li>
+          <li><a href="#" class="btn links">Why Hosterr</a></li>
+        </ul>
+      </nav>
+      <div class="sign-in">
+        <a href="#" class="sign-in-btn btn">Sign in</a>
+        <button class="join-waitlist-btn">Join Waitlist</button>
+      </div>
+    </header>
+    <main class="hero">
+      <section class="hero--content-section">
+        <h1 class="hero--title">Host your website in less than 5 minutes.</h1>
+        <p class="hero--description">
+          With Hosterr, get your website up and running in no less than 5 minutes with the most competitive pricing
+          packages available online.
+        </p>
+        <form id="hero--waitlist-form">
+          <input type="email" name="email" id="waitlist-mail" placeholder="Enter e-mail address"
+            aria-placeholder="Enter e-mail address" autocomplete="off">
+          <button class="join-waitlist-btn">Join Waitlist</button>
+        </form>
+        <div class="hero--disclaimer">
+          <img src="./Assets/Checkmark.svg" alt="Checkmark">
+          No spam, ever. Unsubscribe anytime.
+        </div>
+      </section>
+      <figure class="hero--image-section">
+        <img src="./Assets/Hero Image (Model).png" alt="Model Image" class="hero--img">
+        <img src="./Assets/Purple Shape.svg" alt="purple blob" class="hero--img-bg">
+        <img src="./Assets/Pink Shape.svg" alt="Pink blob" class="hero--img-bg">
+        <img src="./Assets/Blue Shape.svg" alt="Blue blob" class="hero--img-bg">
+      </figure>
+    </main>
+    <footer>
+      <div class="socials">
+        <a href="#" class="btn">Facebook</a>
+        <a href="#" class="btn">Instagram</a>
+        <a href="#" class="btn">Twitter</a>
+      </div>
+      <div class="help">
+        <div class="help--img">
+          <img src="./Assets/Help Avatar.svg" alt="Picture of a person">
+        </div>
+        <div class="help--content">
+          <p class="help--question">Have any question?</p>
+          <a href="#" class="btn help--solution">Talk to a specialist</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
