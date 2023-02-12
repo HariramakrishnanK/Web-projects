@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*, *::before, *::after {margin: 0; padding: 0; box-sizing: border-box;}
+
+*{
+  font-family: 'Press Start 2P';
+  user-select: none;
+}
+
+body{
+  background-color: black;
+  color: #ccc;
+}
+
+button{
+  font-family: inherit;
+}
+
+input:focus{
+  outline: 2px solid white;
+}
+
+button:focus{
+  outline: 2px solid white;
+}
+.container{
+  background-color: #333;
+  width: min(calc(100% - 1vw - 1rem), 1080px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  outline: 10px dotted #ccc;
+  outline-offset: -10px;
+}
+
+.container header{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn{
+  background-color: lightgrey;
+  color: black;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.game{
+  width: 100%;
+}
+
+.game h1{
+  font-size: 3em;
+  letter-spacing: .2em;
+  text-align: center;
+  margin: 7.5rem 0;
+}
+
+.game .line{
+  height: 1rem;
+  background-color: #ccc;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  /* box-shadow: 0 0 0 100vmax #ccc;
+  clip-path: inset(0 -100vmax); */
+  isolation: isolate;
+}
+
+.game .line>.answer{
+  --size: 2.5em;
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  translate: -50% -40%;
+  aspect-ratio: 1 / 1;
+  width: var(--size);
+  line-height: var(--size);
+  font-size: 2.5em;
+  z-index: 2;
+  background-color: grey;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.game .game-info{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin: 8rem 0 0;
+  /* padding: 0 5rem; */
+}
+
+.game .game-info #gussedNumber{
+  text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.game .game-info .group{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.game .game-info .group:nth-child(1) input{
+  height: 2em;
+  width: 2.25em;
+  font-size: 2em;
+}
+
+.game .game-info .group:nth-child(2){
+  align-items: flex-start;
+  flex-basis: 60%;
+  padding-right: 3rem;
+}
+
+.game .game-info .group:nth-child(2) .scores > *{
+  padding-bottom: 2rem;
+}
+
+[data-score]::after {content: attr(data-score);}
+[data-highScore]::after {content: attr(data-highScore);}

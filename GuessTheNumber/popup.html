@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="popup.js" defer></script>
+</head>
+
+<body>
+  <main class="container">
+
+    <header>
+      <button href="popup.html" class="btn again-btn" onclick="replay()" title="Press CTRL + ENTER keys">Again!</button>
+      <p>&lt; Between 1 and 20 &gt;</p>
+    </header>
+
+    <section class="game">
+
+      <h1>Guess My Number!</h1>
+      <span class="line">
+        <span class="answer">?</span>
+      </span>
+
+      <div class="game-info">
+        <div class="group">
+          <input type="tel" min="1" max="20" maxlength="2" id="gussedNumber" autocomplete="off" required>
+          <button class="btn check-btn" onclick="checkWinner()" title="Press ENTER key">Check!</button>
+        </div>
+
+        <div class="group">
+          <h2 class="game-status">Start guessing...</h2>
+          <div class="scores">
+            <h3 data-score="20">Score: </h3>
+            <h3 data-highScore="0">High Score: </h3>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
