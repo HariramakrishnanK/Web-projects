@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+
+  <title>Frontend Mentor | Calculator app</title>
+
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>calc</h1>
+      <div class="theme">
+        <p class="uppercase">Theme</p>
+        <div class="theme-choice">
+          <button data-theme="1">1</button>
+          <button data-theme="2">2</button>
+          <button data-theme="3">3</button>
+        </div>
+        <div class="theme-chosen" data-theme="1"></div>
+      </div>
+    </header>
+    <main id="Calculator">
+      <section id="display">
+        <input type="text" readonly value="" />
+      </section>
+      <section id="keypad">
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="action uppercase" data-operation="delete">del</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="operator" data-operation="add">+</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="operator" data-operation="subtract">-</button>
+        <button class="number">.</button>
+        <button class="number">0</button>
+        <button class="operator" data-operation="divide">/</button>
+        <button class="operator" data-operation="multiple">*</button>
+        <button class="action uppercase wide-btn" data-operation="reset">reset</button>
+        <button class="operator equal wide-btn" data-operation="equal">=</button>
+      </section>
+    </main>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+</html>

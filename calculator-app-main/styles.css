@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+*,*::after, *::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+}
+
+:where(:root){
+  --toggle: var(--accent-btn);
+  --toggle-bg: var(--keypad-bg);
+  --accent-text: hsl(0, 0%, 100%);
+  --header-text: var(--primary-text);
+  --equal-btn: var(--accent-text);
+  --display-text: var(--header-text);
+}
+
+:root:has(div[data-theme="1"]){
+  --body-bg: hsl(222, 26%, 31%);
+  --display-bg: hsl(224, 36%, 15%);
+  --primary-btn: hsl(30, 25%, 89%);
+  --primary-btn-hover: hsl(30, 25%, 94%);
+  --primary-btn-shadow: hsl(28, 16%, 65%);
+  --secondary-btn: hsl(225, 21%, 49%);
+  --secondary-btn-hover: hsl(225, 21%, 54%);
+  --secondary-btn-shadow: hsl(224, 28%, 35%);
+  --accent-btn: hsl(6, 63%, 50%);
+  --accent-btn-hover: hsl(6, 63%, 55%);
+  --accent-btn-shadow: hsl(6, 70%, 34%);
+  --keypad-bg: hsl(223, 31%, 20%);
+  --primary-text: hsl(221, 14%, 31%);
+  --header-text: var(--accent-text);
+}
+
+:root:has(div[data-theme="2"]){
+  --body-bg: hsl(0, 0%, 90%);
+  --display-bg: hsl(0, 0%, 93%);
+  --primary-btn: hsl(45, 7%, 89%);
+  --primary-btn-hover: hsl(45, 7%, 94%);
+  --primary-btn-shadow: hsl(35, 11%, 61%);
+  --secondary-btn: hsl(185, 42%, 37%);
+  --secondary-btn-hover: hsl(185, 42%, 41%);
+  --secondary-btn-shadow: hsl(185, 58%, 25%);
+  --accent-btn: hsl(25, 98%, 40%);
+  --accent-btn-hover: hsl(25, 98%, 45%);
+  --accent-btn-shadow: hsl(25, 99%, 27%);
+  --keypad-bg: hsl(0, 5%, 81%);
+  --primary-text: hsl(60, 10%, 19%);
+}
+
+:root:has(div[data-theme="3"]){
+  --body-bg: hsl(268, 75%, 9%);
+  --display-bg: hsl(268, 71%, 20%);
+  --primary-btn: hsl(281, 89%, 26%);
+  --primary-btn-hover: hsl(281, 89%, 31%);
+  --primary-btn-shadow: hsl(285, 91%, 52%);
+  --secondary-btn: hsl(268, 47%, 25%);
+  --secondary-btn-hover: hsl(268, 47%, 30%);
+  --secondary-btn-shadow: hsl(290, 70%, 40%);
+  --accent-btn: hsl(176, 100%, 44%);
+  --accent-btn-hover: hsl(176, 100%, 49%);
+  --accent-btn-shadow: hsl(177, 92%, 30%);
+  --keypad-bg: hsl(268, 71%, 18%);
+  --primary-text: hsl(52, 100%, 62%);
+  --equal-btn: hsl(198, 20%, 13%);
+}
+
+button{
+  font-family: inherit;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.wide-btn{
+  grid-column: span 2;
+}
+
+body{
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
+  padding-block: 1rem;
+  background-color: var(--body-bg);
+  transition: background-color 200ms ease-in-out,
+              color 200ms ease-in-out;
+}
+
+.wrapper{
+  width: min(400px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+header{
+  display: flex;
+  color: var(--header-text);
+  justify-content: space-between;
+  align-items: last baseline;
+}
+
+header h1{
+  font-size: 2rem;
+}
+
+.theme {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .25rem 1rem;
+  
+  > *:first-child{
+    font-size: .8rem;
+    letter-spacing: .25ch;
+    grid-row: 2 / 3;
+    align-self: last baseline;
+  }
+
+  > *:nth-child(2){
+    grid-column-start: 2;
+  }
+}
+
+.theme-choice{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  
+  > button{
+    font-size: .7rem;
+    color: var(--header-text);
+    background-color: transparent;
+  }
+}
+
+.theme-chosen{
+  --pill-size: 1rem;
+  height: var(--pill-size);
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  background-color: var(--toggle-bg);
+  border-radius: var(--pill-size);
+  position: relative;
+
+  &::after{
+    content: "";
+    --padding: .2rem;;
+    display: inline-block;
+    position: absolute;
+    background-color: var(--toggle);
+    height: 70%;
+    aspect-ratio: 1 / 1;
+    top: 50%;
+    border-radius: 50%;
+   transform: translateY(-50%);
+   transition: all 200ms ease;
+  }
+}
+
+.theme-chosen[data-theme="1"]::after{
+  left: var(--padding);
+}
+
+.theme-chosen[data-theme="2"]::after{
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.theme-chosen[data-theme="3"]::after{
+  right: var(--padding);
+}
+
+#Calculator{
+  --border-radius: 5px;
+  --spacing: 1rem;
+}
+
+#display{
+  padding-block: calc(var(--spacing) * 1.5);
+  margin-block: calc(var(--spacing) * 2) var(--spacing);
+  background-color: var(--display-bg);
+  border-radius: var(--border-radius);
+}
+
+#display input{
+  display: inline-block;
+  background-color: inherit;
+  padding-inline: var(--spacing);
+  text-align: right;
+  cursor: default;
+  color: var(--display-text);
+  border: none;
+  border-radius: var(--border-radius);
+  width: 100%;
+  font-size: 2rem;
+  font-weight: inherit;
+}
+
+#display input:is(:focus-within, :active){
+  outline: none;
+}
+
+#keypad{
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--keypad-bg);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+
+  > * {
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    font-size: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0px .25rem var(--box-shadow);
+  }
+  
+  > *:active {
+    box-shadow: 0px .15rem var(--box-shadow);
+  }
+}
+
+#keypad > *:not(:where(.action, .equal)){
+  --box-shadow: var(--primary-btn-shadow);
+  color: var(--primary-text);
+  background-color: var(--primary-btn);
+
+  &:hover{
+    background-color: var(--primary-btn-hover);
+  }
+}
+
+#keypad > .action{
+  --box-shadow: var(--secondary-btn-shadow);
+  color: var(--accent-text);
+  font-size: 1.25rem;
+  background-color: var(--secondary-btn);
+
+  &:hover{
+    background-color: var(--secondary-btn-hover);
+  }
+}
+
+#keypad > .equal{
+  --box-shadow: var(--accent-btn-shadow);
+  color: var(--equal-btn);
+  background-color: var(--accent-btn);
+
+  &:hover{
+    background-color: var(--accent-btn-hover);
+  }
+}
